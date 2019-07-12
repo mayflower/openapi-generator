@@ -282,10 +282,11 @@ class UserController extends Controller
      * Delete user
      *
      * @param Request $request The Symfony request to handle.
+     * @param string $username
      *
      * @return Response The Symfony response.
      */
-    public function deleteUserAction(Request $request, $username): Response
+    public function deleteUserAction(Request $request, string $username): Response
     {
         // Handle authentication
 
@@ -353,10 +354,11 @@ class UserController extends Controller
      * Get user by user name
      *
      * @param Request $request The Symfony request to handle.
+     * @param string $username
      *
      * @return Response The Symfony response.
      */
-    public function getUserByNameAction(Request $request, $username): Response
+    public function getUserByNameAction(Request $request, string $username): Response
     {
         // Figure out what data format to return to the client
         $produces = ['application/xml', 'application/json'];
@@ -582,10 +584,11 @@ class UserController extends Controller
      * Updated user
      *
      * @param Request $request The Symfony request to handle.
+     * @param string $username
      *
      * @return Response The Symfony response.
      */
-    public function updateUserAction(Request $request, $username): Response
+    public function updateUserAction(Request $request, string $username): Response
     {
         // Make sure that the client is providing something that we can consume
         $consumes    = [];

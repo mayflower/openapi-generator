@@ -128,10 +128,11 @@ class PetController extends Controller
      * Deletes a pet
      *
      * @param Request $request The Symfony request to handle.
+     * @param int $petId
      *
      * @return Response The Symfony response.
      */
-    public function deletePetAction(Request $request, $petId): Response
+    public function deletePetAction(Request $request, int $petId): Response
     {
         // Handle authentication
         // Authentication 'petstore_auth' required
@@ -390,10 +391,11 @@ class PetController extends Controller
      * Find pet by ID
      *
      * @param Request $request The Symfony request to handle.
+     * @param int $petId
      *
      * @return Response The Symfony response.
      */
-    public function getPetByIdAction(Request $request, $petId): Response
+    public function getPetByIdAction(Request $request, int $petId): Response
     {
         // Figure out what data format to return to the client
         $produces = ['application/xml', 'application/json'];
@@ -568,10 +570,11 @@ class PetController extends Controller
      * Updates a pet in the store with form data
      *
      * @param Request $request The Symfony request to handle.
+     * @param int $petId
      *
      * @return Response The Symfony response.
      */
-    public function updatePetWithFormAction(Request $request, $petId): Response
+    public function updatePetWithFormAction(Request $request, int $petId): Response
     {
         // Handle authentication
         // Authentication 'petstore_auth' required
@@ -657,10 +660,11 @@ class PetController extends Controller
      * uploads an image
      *
      * @param Request $request The Symfony request to handle.
+     * @param int $petId
      *
      * @return Response The Symfony response.
      */
-    public function uploadFileAction(Request $request, $petId): Response
+    public function uploadFileAction(Request $request, int $petId): Response
     {
         // Figure out what data format to return to the client
         $produces = ['application/json'];

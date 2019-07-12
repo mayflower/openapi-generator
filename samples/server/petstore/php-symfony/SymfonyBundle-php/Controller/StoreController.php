@@ -44,10 +44,11 @@ class StoreController extends Controller
      * Delete purchase order by ID
      *
      * @param Request $request The Symfony request to handle.
+     * @param string $orderId
      *
      * @return Response The Symfony response.
      */
-    public function deleteOrderAction(Request $request, $orderId): Response
+    public function deleteOrderAction(Request $request, string $orderId): Response
     {
         // Handle authentication
 
@@ -184,10 +185,11 @@ class StoreController extends Controller
      * Find purchase order by ID
      *
      * @param Request $request The Symfony request to handle.
+     * @param int $orderId
      *
      * @return Response The Symfony response.
      */
-    public function getOrderByIdAction(Request $request, $orderId): Response
+    public function getOrderByIdAction(Request $request, int $orderId): Response
     {
         // Figure out what data format to return to the client
         $produces = ['application/xml', 'application/json'];

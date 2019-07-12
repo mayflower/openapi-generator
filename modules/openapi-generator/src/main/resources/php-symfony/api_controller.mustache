@@ -43,10 +43,13 @@ class {{controllerName}} extends Controller
      *
 {{/description}}
      * @param Request $request The Symfony request to handle.
+{{#hasPathParams}}
+{{#pathParams}}     * @param {{dataType}} ${{paramName}}{{/pathParams}}
+{{/hasPathParams}}
      *
      * @return Response The Symfony response.
      */
-    public function {{operationId}}Action(Request $request{{#hasPathParams}}{{#pathParams}}, ${{paramName}}{{/pathParams}}{{/hasPathParams}}): Response
+    public function {{operationId}}Action(Request $request{{#hasPathParams}}{{#pathParams}}, {{dataType}} ${{paramName}}{{/pathParams}}{{/hasPathParams}}): Response
     {
         {{#bodyParams}}
         // Make sure that the client is providing something that we can consume
