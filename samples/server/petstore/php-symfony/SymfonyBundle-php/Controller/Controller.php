@@ -123,24 +123,24 @@ class Controller extends AbstractController
     /**
      * Deserializes data from a given type format.
      *
-     * @param string $data   The data to deserialize.
-     * @param string $class  The target data class.
-     * @param string $format The source serialization format.
+     * @param string|null $data   The data to deserialize.
+     * @param string      $class  The target data class.
+     * @param string      $format The source serialization format.
      *
      * @return mixed A deserialized data.
      */
-    protected function deserialize(string $data, string $class, string $format)
+    protected function deserialize(?string $data, string $class, string $format)
     {
         return $this->serializer->deserialize($data, $class, $format);
     }
 
     /**
-     * @param object     $data
+     * @param string     $data
      * @param array|null $asserts
      *
      * @return Response|null
      */
-    protected function validate(object $data, ?array $asserts = null): ?Response
+    protected function validate(string $data, ?array $asserts = null): ?Response
     {
         $errors = $this->validator->validate($data, $asserts);
 

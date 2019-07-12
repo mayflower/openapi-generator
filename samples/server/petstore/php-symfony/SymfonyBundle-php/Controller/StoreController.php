@@ -33,7 +33,7 @@ use OpenAPI\Server\Model\Order;
 /**
  * StoreController Class Doc Comment
  *
- * @link     https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
 class StoreController extends Controller
 {
@@ -146,7 +146,7 @@ class StoreController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'api_key'
-            $handler->setapi_key($securityApiKey);
+            $handler->setApiKey($securityApiKey);
             
             // Make the call to the business logic
             $responseCode    = 200;

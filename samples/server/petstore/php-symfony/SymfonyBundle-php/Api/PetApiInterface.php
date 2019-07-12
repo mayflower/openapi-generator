@@ -1,13 +1,4 @@
 <?php
-/**
- * PetApiInterface
- * PHP version 5
- *
- * @category Class
- * @package  OpenAPI\Server
- * @author   OpenAPI Generator team
- * @link     https://github.com/openapitools/openapi-generator
- */
 
 /**
  * OpenAPI Petstore
@@ -35,31 +26,28 @@ use OpenAPI\Server\Model\Pet;
 /**
  * PetApiInterface Interface Doc Comment
  *
- * @category Interface
- * @package  OpenAPI\Server\Api
- * @author   OpenAPI Generator team
- * @link     https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
 interface PetApiInterface
 {
 
     /**
-     * Sets authentication method petstore_auth
+     * Sets authentication method 'petstore_auth'
      *
-     * @param string $value Value of the petstore_auth authentication method.
+     * @param string $value Value of the 'petstore_auth' authentication method.
      *
      * @return void
      */
-    public function setpetstore_auth($value);
+    public function setPetstoreAuth($value);
 
     /**
-     * Sets authentication method api_key
+     * Sets authentication method 'api_key'
      *
-     * @param string $value Value of the api_key authentication method.
+     * @param string $value Value of the 'api_key' authentication method.
      *
      * @return void
      */
-    public function setapi_key($value);
+    public function setApiKey($value);
 
     /**
      * Operation addPet

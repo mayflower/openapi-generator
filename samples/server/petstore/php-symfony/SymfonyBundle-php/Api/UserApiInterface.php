@@ -1,13 +1,4 @@
 <?php
-/**
- * UserApiInterface
- * PHP version 5
- *
- * @category Class
- * @package  OpenAPI\Server
- * @author   OpenAPI Generator team
- * @link     https://github.com/openapitools/openapi-generator
- */
 
 /**
  * OpenAPI Petstore
@@ -34,10 +25,7 @@ use OpenAPI\Server\Model\User;
 /**
  * UserApiInterface Interface Doc Comment
  *
- * @category Interface
- * @package  OpenAPI\Server\Api
- * @author   OpenAPI Generator team
- * @link     https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
 interface UserApiInterface
 {

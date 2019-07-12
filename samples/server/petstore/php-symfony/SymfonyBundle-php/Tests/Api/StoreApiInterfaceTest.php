@@ -1,13 +1,4 @@
 <?php
-/**
- * StoreApiInterfaceTest
- * PHP version 5
- *
- * @category Class
- * @package  OpenAPI\Server\Tests\Api
- * @author   openapi-generator contributors
- * @link     https://github.com/openapitools/openapi-generator
- */
 
 /**
  * OpenAPI Petstore
@@ -28,19 +19,12 @@
 
 namespace OpenAPI\Server\Tests\Api;
 
-use OpenAPI\Server\Configuration;
-use OpenAPI\Server\ApiClient;
-use OpenAPI\Server\ApiException;
-use OpenAPI\Server\ObjectSerializer;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * StoreApiInterfaceTest Class Doc Comment
  *
- * @category Class
- * @package  OpenAPI\Server\Tests\Api
- * @author   openapi-generator contributors
- * @link     https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
 class StoreApiInterfaceTest extends WebTestCase
 {
@@ -48,28 +32,28 @@ class StoreApiInterfaceTest extends WebTestCase
     /**
      * Setup before running any test cases
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
     }
 
     /**
      * Setup before running each test case
      */
-    public function setUp()
+    public function setUp(): void
     {
     }
 
     /**
      * Clean up after running each test case
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
     /**
      * Clean up after running all test cases
      */
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
     }
 
@@ -77,75 +61,78 @@ class StoreApiInterfaceTest extends WebTestCase
      * Test case for deleteOrder
      *
      * Delete purchase order by ID.
-     *
      */
-    public function testDeleteOrder()
+    public function testDeleteOrder(): void
     {
         $client = static::createClient();
 
-        $path = '/store/order/{orderId}';
+        $path    = '/store/order/{orderId}';
         $pattern = '{orderId}';
-        $data = $this->genTestData('[a-z0-9]+');
-        $path = str_replace($pattern, $data, $path);
+        $data =    $this->genTestData('[a-z0-9]+');
+        $path =    str_replace($pattern, $data, $path);
 
-        $crawler = $client->request('DELETE', $path);
+        $client->request('DELETE', $path);
     }
 
     /**
      * Test case for getInventory
      *
      * Returns pet inventories by status.
-     *
      */
-    public function testGetInventory()
+    public function testGetInventory(): void
     {
         $client = static::createClient();
 
-        $path = '/store/inventory';
+        $path    = '/store/inventory';
 
-        $crawler = $client->request('GET', $path);
+        $client->request('GET', $path);
     }
 
     /**
      * Test case for getOrderById
      *
      * Find purchase order by ID.
-     *
      */
-    public function testGetOrderById()
+    public function testGetOrderById(): void
     {
         $client = static::createClient();
 
-        $path = '/store/order/{orderId}';
+        $path    = '/store/order/{orderId}';
         $pattern = '{orderId}';
-        $data = $this->genTestData('\d+');
-        $path = str_replace($pattern, $data, $path);
+        $data =    $this->genTestData('\d+');
+        $path =    str_replace($pattern, $data, $path);
 
-        $crawler = $client->request('GET', $path);
+        $client->request('GET', $path);
     }
 
     /**
      * Test case for placeOrder
      *
      * Place an order for a pet.
-     *
      */
-    public function testPlaceOrder()
+    public function testPlaceOrder(): void
     {
         $client = static::createClient();
 
-        $path = '/store/order';
+        $path    = '/store/order';
 
-        $crawler = $client->request('POST', $path);
+        $client->request('POST', $path);
     }
 
-    protected function genTestData($regexp)
+    /**
+    * @param string $regexp
+    *
+    * @return mixed
+    *
+    * @throws \Hoa\Regex\Exception
+    */
+    protected function genTestData(string $regexp)
     {
-        $grammar  = new \Hoa\File\Read('hoa://Library/Regex/Grammar.pp');
-        $compiler = \Hoa\Compiler\Llk\Llk::load($grammar);
-        $ast      = $compiler->parse($regexp);
+        $grammar   = new \Hoa\File\Read('hoa://Library/Regex/Grammar.pp');
+        $compiler  = \Hoa\Compiler\Llk\Llk::load($grammar);
+        $ast       = $compiler->parse($regexp);
         $generator = new \Hoa\Regex\Visitor\Isotropic(new \Hoa\Math\Sampler\Random());
 
-        return $generator->visit($ast); 
+        return $generator->visit($ast);
     }
 }

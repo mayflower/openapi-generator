@@ -34,7 +34,7 @@ use OpenAPI\Server\Model\Pet;
 /**
  * PetController Class Doc Comment
  *
- * @link     https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
 class PetController extends Controller
 {
@@ -90,7 +90,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securityPetstoreAuth);
+            $handler->setPetstoreAuth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 204;
@@ -172,7 +172,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securityPetstoreAuth);
+            $handler->setPetstoreAuth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 204;
@@ -260,7 +260,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securityPetstoreAuth);
+            $handler->setPetstoreAuth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 200;
@@ -349,7 +349,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securityPetstoreAuth);
+            $handler->setPetstoreAuth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 200;
@@ -436,7 +436,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'api_key'
-            $handler->setapi_key($securityApiKey);
+            $handler->setApiKey($securityApiKey);
             
             // Make the call to the business logic
             $responseCode    = 200;
@@ -526,7 +526,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securityPetstoreAuth);
+            $handler->setPetstoreAuth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 204;
@@ -622,7 +622,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securityPetstoreAuth);
+            $handler->setPetstoreAuth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 204;
@@ -720,7 +720,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securityPetstoreAuth);
+            $handler->setPetstoreAuth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 200;

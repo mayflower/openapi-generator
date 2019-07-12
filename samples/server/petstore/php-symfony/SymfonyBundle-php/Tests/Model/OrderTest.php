@@ -1,14 +1,4 @@
 <?php
-/**
- * OrderTest
- *
- * PHP version 5
- *
- * @category Class
- * @package  OpenAPI\Server\Tests\Model
- * @author   openapi-generator contributors
- * @link     https://github.com/openapitools/openapi-generator
- */
 
 /**
  * OpenAPI Petstore
@@ -27,19 +17,18 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Server\Model;
+namespace OpenAPI\Server\Tests\Model;
+
+use OpenAPI\Server\Model\Order;
+
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 /**
  * OrderTest Class Doc Comment
  *
- * @category    Class */
-// * @description An order for a pets from the pet store
-/**
- * @package     OpenAPI\Server\Tests\Model
- * @author      openapi-generator contributors
- * @link        https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
-class OrderTest extends \PHPUnit_Framework_TestCase
+class OrderTest extends TestCase
 {
 
     /**

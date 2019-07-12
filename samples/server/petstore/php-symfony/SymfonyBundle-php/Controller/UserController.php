@@ -33,7 +33,7 @@ use OpenAPI\Server\Model\User;
 /**
  * UserController Class Doc Comment
  *
- * @link     https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
 class UserController extends Controller
 {

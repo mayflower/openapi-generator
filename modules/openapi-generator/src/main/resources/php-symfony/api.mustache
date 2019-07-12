@@ -1,13 +1,4 @@
 <?php
-/**
- * {{classname}}
- * PHP version 5
- *
- * @category Class
- * @package  {{invokerPackage}}
- * @author   OpenAPI Generator team
- * @link     https://github.com/openapitools/openapi-generator
- */
 
 {{>partial_header}}
 /**
@@ -25,23 +16,20 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * {{classname}} Interface Doc Comment
  *
- * @category Interface
- * @package  {{apiPackage}}
- * @author   OpenAPI Generator team
- * @link     https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
 interface {{classname}}
 {
     {{#authMethods}}
 
     /**
-     * Sets authentication method {{name}}
+     * Sets authentication method '{{name}}'
      *
-     * @param string $value Value of the {{name}} authentication method.
+     * @param string $value Value of the '{{name}}' authentication method.
      *
      * @return void
      */
-    public function set{{name}}($value);
+    public function {{#camelcase}}set_{{name}}{{/camelcase}}($value);
     {{/authMethods}}
     {{#operation}}
 

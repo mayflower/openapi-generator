@@ -25,7 +25,7 @@ use {{apiPackage}}\{{classname}};
 /**
  * {{controllerName}} Class Doc Comment
  *
- * @link     https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
 class {{controllerName}} extends Controller
 {
@@ -160,7 +160,7 @@ class {{controllerName}} extends Controller
 
             {{#authMethods}}
             // Set authentication method '{{name}}'
-            $handler->set{{name}}(${{#camelcase}}security_{{name}}{{/camelcase}});
+            $handler->{{#camelcase}}set_{{name}}{{/camelcase}}(${{#camelcase}}security_{{name}}{{/camelcase}});
             {{/authMethods}}
             
             // Make the call to the business logic

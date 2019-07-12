@@ -1,14 +1,4 @@
 <?php
-/**
- * UserTest
- *
- * PHP version 5
- *
- * @category Class
- * @package  OpenAPI\Server\Tests\Model
- * @author   openapi-generator contributors
- * @link     https://github.com/openapitools/openapi-generator
- */
 
 /**
  * OpenAPI Petstore
@@ -27,19 +17,18 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Server\Model;
+namespace OpenAPI\Server\Tests\Model;
+
+use OpenAPI\Server\Model\User;
+
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 /**
  * UserTest Class Doc Comment
  *
- * @category    Class */
-// * @description A User who is purchasing from the pet store
-/**
- * @package     OpenAPI\Server\Tests\Model
- * @author      openapi-generator contributors
- * @link        https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
-class UserTest extends \PHPUnit_Framework_TestCase
+class UserTest extends TestCase
 {
 
     /**

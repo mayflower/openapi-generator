@@ -1,16 +1,6 @@
 <?php
 {{#models}}
 {{#model}}
-/**
- * {{classname}}Test
- *
- * PHP version 5
- *
- * @category Class
- * @package  {{modelTestsPackage}}
- * @author   openapi-generator contributors
- * @link     https://github.com/openapitools/openapi-generator
- */
 
 {{>partial_header}}
 /**
@@ -19,19 +9,18 @@
  * Please update the test case below to test the model.
  */
 
-namespace {{modelPackage}};
+namespace {{modelTestsPackage}};
+
+use {{modelPackage}}\{{classname}};
+
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 /**
  * {{classname}}Test Class Doc Comment
  *
- * @category    Class */
-// * @description {{#description}}{{description}}{{/description}}{{^description}}{{classname}}{{/description}}
-/**
- * @package     {{modelTestsPackage}}
- * @author      openapi-generator contributors
- * @link        https://github.com/openapitools/openapi-generator
+ * @link https://github.com/openapitools/openapi-generator
  */
-class {{classname}}Test extends \PHPUnit_Framework_TestCase
+class {{classname}}Test extends TestCase
 {
 
     /**
