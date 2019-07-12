@@ -80,7 +80,7 @@ class StoreController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->deleteOrder($orderId, $responseCode, $responseHeaders);
+            $handler->deleteOrder($orderId, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';

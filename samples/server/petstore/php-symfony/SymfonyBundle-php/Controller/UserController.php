@@ -89,7 +89,7 @@ class UserController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->createUser($body, $responseCode, $responseHeaders);
+            $handler->createUser($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -169,7 +169,7 @@ class UserController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->createUsersWithArrayInput($body, $responseCode, $responseHeaders);
+            $handler->createUsersWithArrayInput($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -249,7 +249,7 @@ class UserController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->createUsersWithListInput($body, $responseCode, $responseHeaders);
+            $handler->createUsersWithListInput($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -318,7 +318,7 @@ class UserController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->deleteUser($username, $responseCode, $responseHeaders);
+            $handler->deleteUser($username, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -551,7 +551,7 @@ class UserController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->logoutUser($responseCode, $responseHeaders);
+            $handler->logoutUser($responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -638,7 +638,7 @@ class UserController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->updateUser($username, $body, $responseCode, $responseHeaders);
+            $handler->updateUser($username, $body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';

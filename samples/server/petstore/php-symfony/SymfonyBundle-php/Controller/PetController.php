@@ -95,7 +95,7 @@ class PetController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->addPet($body, $responseCode, $responseHeaders);
+            $handler->addPet($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -177,7 +177,7 @@ class PetController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->deletePet($petId, $apiKey, $responseCode, $responseHeaders);
+            $handler->deletePet($petId, $apiKey, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -531,7 +531,7 @@ class PetController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->updatePet($body, $responseCode, $responseHeaders);
+            $handler->updatePet($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -627,7 +627,7 @@ class PetController extends Controller
             // Make the call to the business logic
             $responseCode    = 204;
             $responseHeaders = [];
-            $result          = $handler->updatePetWithForm($petId, $name, $status, $responseCode, $responseHeaders);
+            $handler->updatePetWithForm($petId, $name, $status, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';

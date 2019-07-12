@@ -166,7 +166,7 @@ class {{controllerName}} extends Controller
             // Make the call to the business logic
             $responseCode    = {{#returnType}}200{{/returnType}}{{^returnType}}204{{/returnType}};
             $responseHeaders = [];
-            $result          = $handler->{{operationId}}({{#allParams}}${{paramName}}, {{/allParams}}$responseCode, $responseHeaders);
+            {{#returnType}}$result          = {{/returnType}}$handler->{{operationId}}({{#allParams}}${{paramName}}, {{/allParams}}$responseCode, $responseHeaders);
 
             // Find default response message
             $message = '{{#responses}}{{#isDefault}}{{message}}{{/isDefault}}{{/responses}}';
