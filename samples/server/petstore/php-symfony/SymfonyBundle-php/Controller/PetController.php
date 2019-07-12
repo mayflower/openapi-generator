@@ -61,7 +61,7 @@ class PetController extends Controller
         // Handle authentication
         // Authentication 'petstore_auth' required
         // Oauth required
-        $securitypetstore_auth = $request->headers->get('authorization');
+        $securityPetstoreAuth = $request->headers->get('authorization');
 
         // Read out all input parameter values into variables
         $body = $request->getContent();
@@ -90,7 +90,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securitypetstore_auth);
+            $handler->setpetstore_auth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 204;
@@ -137,7 +137,7 @@ class PetController extends Controller
         // Handle authentication
         // Authentication 'petstore_auth' required
         // Oauth required
-        $securitypetstore_auth = $request->headers->get('authorization');
+        $securityPetstoreAuth = $request->headers->get('authorization');
 
         // Read out all input parameter values into variables
         $apiKey = $request->headers->get('api_key');
@@ -172,7 +172,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securitypetstore_auth);
+            $handler->setpetstore_auth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 204;
@@ -227,7 +227,7 @@ class PetController extends Controller
         // Handle authentication
         // Authentication 'petstore_auth' required
         // Oauth required
-        $securitypetstore_auth = $request->headers->get('authorization');
+        $securityPetstoreAuth = $request->headers->get('authorization');
 
         // Read out all input parameter values into variables
         $status = $request->query->get('status');
@@ -260,7 +260,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securitypetstore_auth);
+            $handler->setpetstore_auth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 200;
@@ -319,7 +319,7 @@ class PetController extends Controller
         // Handle authentication
         // Authentication 'petstore_auth' required
         // Oauth required
-        $securitypetstore_auth = $request->headers->get('authorization');
+        $securityPetstoreAuth = $request->headers->get('authorization');
 
         // Read out all input parameter values into variables
         $tags = $request->query->get('tags');
@@ -349,7 +349,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securitypetstore_auth);
+            $handler->setpetstore_auth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 200;
@@ -409,7 +409,7 @@ class PetController extends Controller
         // Handle authentication
         // Authentication 'api_key' required
         // Set key with prefix in header
-        $securityapi_key = $request->headers->get('api_key');
+        $securityApiKey = $request->headers->get('api_key');
 
         // Read out all input parameter values into variables
 
@@ -436,7 +436,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'api_key'
-            $handler->setapi_key($securityapi_key);
+            $handler->setapi_key($securityApiKey);
             
             // Make the call to the business logic
             $responseCode    = 200;
@@ -497,7 +497,7 @@ class PetController extends Controller
         // Handle authentication
         // Authentication 'petstore_auth' required
         // Oauth required
-        $securitypetstore_auth = $request->headers->get('authorization');
+        $securityPetstoreAuth = $request->headers->get('authorization');
 
         // Read out all input parameter values into variables
         $body = $request->getContent();
@@ -526,7 +526,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securitypetstore_auth);
+            $handler->setpetstore_auth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 204;
@@ -579,7 +579,7 @@ class PetController extends Controller
         // Handle authentication
         // Authentication 'petstore_auth' required
         // Oauth required
-        $securitypetstore_auth = $request->headers->get('authorization');
+        $securityPetstoreAuth = $request->headers->get('authorization');
 
         // Read out all input parameter values into variables
         $name = $request->request->get('name');
@@ -622,7 +622,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securitypetstore_auth);
+            $handler->setpetstore_auth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 204;
@@ -678,7 +678,7 @@ class PetController extends Controller
         // Handle authentication
         // Authentication 'petstore_auth' required
         // Oauth required
-        $securitypetstore_auth = $request->headers->get('authorization');
+        $securityPetstoreAuth = $request->headers->get('authorization');
 
         // Read out all input parameter values into variables
         $additionalMetadata = $request->request->get('additionalMetadata');
@@ -720,7 +720,7 @@ class PetController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'petstore_auth'
-            $handler->setpetstore_auth($securitypetstore_auth);
+            $handler->setpetstore_auth($securityPetstoreAuth);
             
             // Make the call to the business logic
             $responseCode    = 200;

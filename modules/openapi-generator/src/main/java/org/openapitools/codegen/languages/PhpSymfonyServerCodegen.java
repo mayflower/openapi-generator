@@ -19,8 +19,10 @@ package org.openapitools.codegen.languages;
 
 import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.*;
+import org.openapitools.codegen.templating.mustache.CamelCaseLambda;
 import org.openapitools.codegen.utils.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -306,6 +308,9 @@ public class PhpSymfonyServerCodegen extends AbstractPhpCodegen implements Codeg
 
         // make test path available in mustache template
         additionalProperties.put("testsDirName", testsDirName);
+
+        // make extras available in mustache template
+        additionalProperties.put("camelcase", new CamelCaseLambda());
 
         final String configDir = "Resources" + File.separator + "config";
         final String dependencyInjectionDir = "DependencyInjection";

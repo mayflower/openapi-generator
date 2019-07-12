@@ -78,24 +78,24 @@ class {{controllerName}} extends Controller
         {{#isApiKey}}
         {{#isKeyInHeader}}
         // Set key with prefix in header
-        $security{{name}} = $request->headers->get('{{keyParamName}}');
+        ${{#camelcase}}security_{{name}}{{/camelcase}} = $request->headers->get('{{keyParamName}}');
         {{/isKeyInHeader}}
         {{#isKeyInQuery}}
         // Set key with prefix in query string
-        $security{{name}} = $request->query->get('{{keyParamName}}');
+        ${{#camelcase}}security_{{name}}{{/camelcase}} = $request->query->get('{{keyParamName}}');
         {{/isKeyInQuery}}
         {{#isKeyInCookie}}
         // Set key with prefix in cookies
-        $security{{name}} = $request->cookies->get('{{keyParamName}}');
+        ${{#camelcase}}security_{{name}}{{/camelcase}} = $request->cookies->get('{{keyParamName}}');
         {{/isKeyInCookie}}
         {{/isApiKey}}
         {{#isBasic}}
         // HTTP basic authentication required
-        $security{{name}} = $request->headers->get('authorization');
+        ${{#camelcase}}security_{{name}}{{/camelcase}} = $request->headers->get('authorization');
         {{/isBasic}}
         {{#isOAuth}}
         // Oauth required
-        $security{{name}} = $request->headers->get('authorization');
+        ${{#camelcase}}security_{{name}}{{/camelcase}} = $request->headers->get('authorization');
         {{/isOAuth}}
         {{/authMethods}}
 
@@ -160,7 +160,7 @@ class {{controllerName}} extends Controller
 
             {{#authMethods}}
             // Set authentication method '{{name}}'
-            $handler->set{{name}}($security{{name}});
+            $handler->set{{name}}(${{#camelcase}}security_{{name}}{{/camelcase}});
             {{/authMethods}}
             
             // Make the call to the business logic

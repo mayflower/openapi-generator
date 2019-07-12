@@ -133,7 +133,7 @@ class StoreController extends Controller
         // Handle authentication
         // Authentication 'api_key' required
         // Set key with prefix in header
-        $securityapi_key = $request->headers->get('api_key');
+        $securityApiKey = $request->headers->get('api_key');
 
         // Read out all input parameter values into variables
 
@@ -146,7 +146,7 @@ class StoreController extends Controller
             $handler = $this->getApiHandler();
 
             // Set authentication method 'api_key'
-            $handler->setapi_key($securityapi_key);
+            $handler->setapi_key($securityApiKey);
             
             // Make the call to the business logic
             $responseCode    = 200;
