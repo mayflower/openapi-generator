@@ -72,11 +72,11 @@ class UserController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("OpenAPI\Server\Model\User");
+        $asserts[] = new Assert\Type(OpenAPI\Server\Model\User::class);
         $asserts[] = new Assert\Valid();
-        $response = $this->validate($body, $asserts);
+        $response  = $this->validate($body, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -87,9 +87,9 @@ class UserController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->createUser($body, $responseCode, $responseHeaders);
+            $result          = $handler->createUser($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -107,7 +107,7 @@ class UserController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -150,13 +150,13 @@ class UserController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
         $asserts[] = new Assert\All([
-            new Assert\Type("OpenAPI\Server\Model\User"),
+            new Assert\Type(OpenAPI\Server\Model\User::class),
             new Assert\Valid(),
         ]);
-        $response = $this->validate($body, $asserts);
+        $response  = $this->validate($body, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -167,9 +167,9 @@ class UserController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->createUsersWithArrayInput($body, $responseCode, $responseHeaders);
+            $result          = $handler->createUsersWithArrayInput($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -187,7 +187,7 @@ class UserController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -230,13 +230,13 @@ class UserController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
         $asserts[] = new Assert\All([
-            new Assert\Type("OpenAPI\Server\Model\User"),
+            new Assert\Type(OpenAPI\Server\Model\User::class),
             new Assert\Valid(),
         ]);
-        $response = $this->validate($body, $asserts);
+        $response  = $this->validate($body, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -247,9 +247,9 @@ class UserController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->createUsersWithListInput($body, $responseCode, $responseHeaders);
+            $result          = $handler->createUsersWithListInput($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -267,7 +267,7 @@ class UserController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -301,10 +301,10 @@ class UserController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($username, $asserts);
+        $asserts[] = new Assert\Type(string::class);
+        $response  = $this->validate($username, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -315,9 +315,9 @@ class UserController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->deleteUser($username, $responseCode, $responseHeaders);
+            $result          = $handler->deleteUser($username, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -338,7 +338,7 @@ class UserController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -381,10 +381,10 @@ class UserController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($username, $asserts);
+        $asserts[] = new Assert\Type(string::class);
+        $response  = $this->validate($username, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -395,9 +395,9 @@ class UserController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 200;
+            $responseCode    = 200;
             $responseHeaders = [];
-            $result = $handler->getUserByName($username, $responseCode, $responseHeaders);
+            $result          = $handler->getUserByName($username, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -422,7 +422,7 @@ class UserController extends Controller
                     $responseHeaders,
                     [
                         'Content-Type' => $responseFormat,
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -468,17 +468,17 @@ class UserController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($username, $asserts);
+        $asserts[] = new Assert\Type(string::class);
+        $response  = $this->validate($username, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($password, $asserts);
+        $asserts[] = new Assert\Type(string::class);
+        $response  = $this->validate($password, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -489,9 +489,9 @@ class UserController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 200;
+            $responseCode    = 200;
             $responseHeaders = [];
-            $result = $handler->loginUser($username, $password, $responseCode, $responseHeaders);
+            $result          = $handler->loginUser($username, $password, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -513,7 +513,7 @@ class UserController extends Controller
                     $responseHeaders,
                     [
                         'Content-Type' => $responseFormat,
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -547,9 +547,9 @@ class UserController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->logoutUser($responseCode, $responseHeaders);
+            $result          = $handler->logoutUser($responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -567,7 +567,7 @@ class UserController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -611,18 +611,18 @@ class UserController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($username, $asserts);
+        $asserts[] = new Assert\Type(string::class);
+        $response  = $this->validate($username, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("OpenAPI\Server\Model\User");
+        $asserts[] = new Assert\Type(OpenAPI\Server\Model\User::class);
         $asserts[] = new Assert\Valid();
-        $response = $this->validate($body, $asserts);
+        $response  = $this->validate($body, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -633,9 +633,9 @@ class UserController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->updateUser($username, $body, $responseCode, $responseHeaders);
+            $result          = $handler->updateUser($username, $body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -656,7 +656,7 @@ class UserController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );

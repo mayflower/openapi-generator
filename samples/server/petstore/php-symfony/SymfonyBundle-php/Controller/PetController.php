@@ -76,11 +76,11 @@ class PetController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("OpenAPI\Server\Model\Pet");
+        $asserts[] = new Assert\Type(OpenAPI\Server\Model\Pet::class);
         $asserts[] = new Assert\Valid();
-        $response = $this->validate($body, $asserts);
+        $response  = $this->validate($body, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -93,9 +93,9 @@ class PetController extends Controller
             $handler->setpetstore_auth($securitypetstore_auth);
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->addPet($body, $responseCode, $responseHeaders);
+            $result          = $handler->addPet($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -113,7 +113,7 @@ class PetController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -152,16 +152,16 @@ class PetController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("int");
-        $response = $this->validate($petId, $asserts);
+        $asserts[] = new Assert\Type(int::class);
+        $response  = $this->validate($petId, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
-        $asserts = [];
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($apiKey, $asserts);
+        $asserts   = [];
+        $asserts[] = new Assert\Type(string::class);
+        $response  = $this->validate($apiKey, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -174,9 +174,9 @@ class PetController extends Controller
             $handler->setpetstore_auth($securitypetstore_auth);
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->deletePet($petId, $apiKey, $responseCode, $responseHeaders);
+            $result          = $handler->deletePet($petId, $apiKey, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -194,7 +194,7 @@ class PetController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -241,15 +241,15 @@ class PetController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
         $asserts[] = new Assert\All([
             new Assert\Choice([ "available", "pending", "sold" ])
         ]);
         $asserts[] = new Assert\All([
-            new Assert\Type("string"),
+            new Assert\Type(string::class),
         ]);
-        $response = $this->validate($status, $asserts);
+        $response  = $this->validate($status, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -262,9 +262,9 @@ class PetController extends Controller
             $handler->setpetstore_auth($securitypetstore_auth);
             
             // Make the call to the business logic
-            $responseCode = 200;
+            $responseCode    = 200;
             $responseHeaders = [];
-            $result = $handler->findPetsByStatus($status, $responseCode, $responseHeaders);
+            $result          = $handler->findPetsByStatus($status, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -286,7 +286,7 @@ class PetController extends Controller
                     $responseHeaders,
                     [
                         'Content-Type' => $responseFormat,
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -333,12 +333,12 @@ class PetController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
         $asserts[] = new Assert\All([
-            new Assert\Type("string"),
+            new Assert\Type(string::class),
         ]);
-        $response = $this->validate($tags, $asserts);
+        $response  = $this->validate($tags, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -351,9 +351,9 @@ class PetController extends Controller
             $handler->setpetstore_auth($securitypetstore_auth);
             
             // Make the call to the business logic
-            $responseCode = 200;
+            $responseCode    = 200;
             $responseHeaders = [];
-            $result = $handler->findPetsByTags($tags, $responseCode, $responseHeaders);
+            $result          = $handler->findPetsByTags($tags, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -375,7 +375,7 @@ class PetController extends Controller
                     $responseHeaders,
                     [
                         'Content-Type' => $responseFormat,
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -421,10 +421,10 @@ class PetController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("int");
-        $response = $this->validate($petId, $asserts);
+        $asserts[] = new Assert\Type(int::class);
+        $response  = $this->validate($petId, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -437,9 +437,9 @@ class PetController extends Controller
             $handler->setapi_key($securityapi_key);
             
             // Make the call to the business logic
-            $responseCode = 200;
+            $responseCode    = 200;
             $responseHeaders = [];
-            $result = $handler->getPetById($petId, $responseCode, $responseHeaders);
+            $result          = $handler->getPetById($petId, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -464,7 +464,7 @@ class PetController extends Controller
                     $responseHeaders,
                     [
                         'Content-Type' => $responseFormat,
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -510,11 +510,11 @@ class PetController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("OpenAPI\Server\Model\Pet");
+        $asserts[] = new Assert\Type(OpenAPI\Server\Model\Pet::class);
         $asserts[] = new Assert\Valid();
-        $response = $this->validate($body, $asserts);
+        $response  = $this->validate($body, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -527,9 +527,9 @@ class PetController extends Controller
             $handler->setpetstore_auth($securitypetstore_auth);
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->updatePet($body, $responseCode, $responseHeaders);
+            $result          = $handler->updatePet($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -553,7 +553,7 @@ class PetController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -594,22 +594,22 @@ class PetController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("int");
-        $response = $this->validate($petId, $asserts);
+        $asserts[] = new Assert\Type(int::class);
+        $response  = $this->validate($petId, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
-        $asserts = [];
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($name, $asserts);
+        $asserts   = [];
+        $asserts[] = new Assert\Type(string::class);
+        $response  = $this->validate($name, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
-        $asserts = [];
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($status, $asserts);
+        $asserts   = [];
+        $asserts[] = new Assert\Type(string::class);
+        $response  = $this->validate($status, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -622,9 +622,9 @@ class PetController extends Controller
             $handler->setpetstore_auth($securitypetstore_auth);
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->updatePetWithForm($petId, $name, $status, $responseCode, $responseHeaders);
+            $result          = $handler->updatePetWithForm($petId, $name, $status, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -642,7 +642,7 @@ class PetController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -691,22 +691,22 @@ class PetController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("int");
-        $response = $this->validate($petId, $asserts);
+        $asserts[] = new Assert\Type(int::class);
+        $response  = $this->validate($petId, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
-        $asserts = [];
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($additionalMetadata, $asserts);
+        $asserts   = [];
+        $asserts[] = new Assert\Type(string::class);
+        $response  = $this->validate($additionalMetadata, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\File();
-        $response = $this->validate($file, $asserts);
+        $response  = $this->validate($file, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -719,9 +719,9 @@ class PetController extends Controller
             $handler->setpetstore_auth($securitypetstore_auth);
             
             // Make the call to the business logic
-            $responseCode = 200;
+            $responseCode    = 200;
             $responseHeaders = [];
-            $result = $handler->uploadFile($petId, $additionalMetadata, $file, $responseCode, $responseHeaders);
+            $result          = $handler->uploadFile($petId, $additionalMetadata, $file, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -740,7 +740,7 @@ class PetController extends Controller
                     $responseHeaders,
                     [
                         'Content-Type' => $responseFormat,
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );

@@ -1,5 +1,5 @@
 {{#allParams}}
-        $asserts = [];
+        $asserts   = [];
 {{#required}}
         $asserts[] = new Assert\NotNull();
 {{/required}}
@@ -18,7 +18,7 @@
 {{#isContainer}}
     {{#items}}
         $asserts[] = new Assert\All([
-            new Assert\Type("{{dataType}}"),
+            new Assert\Type({{dataType}}::class),
             {{^isPrimitiveType}}
             new Assert\Valid(),
             {{/isPrimitiveType}}
@@ -38,7 +38,7 @@
         $asserts[] = new Assert\File();
     {{/isFile}}
     {{^isFile}}
-        $asserts[] = new Assert\Type("{{dataType}}");
+        $asserts[] = new Assert\Type({{dataType}}::class);
         {{^isPrimitiveType}}
         $asserts[] = new Assert\Valid();
         {{/isPrimitiveType}}
@@ -74,7 +74,7 @@
     {{/exclusiveMaximum}}
     {{/maximum}}
     {{#pattern}}
-        $asserts[] = new Assert\Regex("/{{pattern}}/");
+        $asserts[] = new Assert\Regex('/{{pattern}}/');
     {{/pattern}}
     {{#maxItems}}
         $asserts[] = new Assert\Count([
@@ -87,7 +87,7 @@
         ]);
     {{/minItems}}
 {{/hasValidation}}
-        $response = $this->validate(${{paramName}}, $asserts);
+        $response  = $this->validate(${{paramName}}, $asserts);
         if ($response instanceof Response) {
             return $response;
         }

@@ -161,9 +161,9 @@ class {{controllerName}} extends Controller
             {{/authMethods}}
             
             // Make the call to the business logic
-            $responseCode = {{#returnType}}200{{/returnType}}{{^returnType}}204{{/returnType}};
+            $responseCode    = {{#returnType}}200{{/returnType}}{{^returnType}}204{{/returnType}};
             $responseHeaders = [];
-            $result = $handler->{{operationId}}({{#allParams}}${{paramName}}, {{/allParams}}$responseCode, $responseHeaders);
+            $result          = $handler->{{operationId}}({{#allParams}}${{paramName}}, {{/allParams}}$responseCode, $responseHeaders);
 
             // Find default response message
             $message = '{{#responses}}{{#isDefault}}{{message}}{{/isDefault}}{{/responses}}';
@@ -186,7 +186,7 @@ class {{controllerName}} extends Controller
                         {{#returnType}}
                         'Content-Type' => $responseFormat,
                         {{/returnType}}
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );

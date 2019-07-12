@@ -63,10 +63,10 @@ class StoreController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($orderId, $asserts);
+        $asserts[] = new Assert\Type(string::class);
+        $response  = $this->validate($orderId, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -77,9 +77,9 @@ class StoreController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 204;
+            $responseCode    = 204;
             $responseHeaders = [];
-            $result = $handler->deleteOrder($orderId, $responseCode, $responseHeaders);
+            $result          = $handler->deleteOrder($orderId, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = '';
@@ -100,7 +100,7 @@ class StoreController extends Controller
                 array_merge(
                     $responseHeaders,
                     [
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -148,9 +148,9 @@ class StoreController extends Controller
             $handler->setapi_key($securityapi_key);
             
             // Make the call to the business logic
-            $responseCode = 200;
+            $responseCode    = 200;
             $responseHeaders = [];
-            $result = $handler->getInventory($responseCode, $responseHeaders);
+            $result          = $handler->getInventory($responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -169,7 +169,7 @@ class StoreController extends Controller
                     $responseHeaders,
                     [
                         'Content-Type' => $responseFormat,
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -212,12 +212,12 @@ class StoreController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("int");
+        $asserts[] = new Assert\Type(int::class);
         $asserts[] = new Assert\GreaterThanOrEqual(1);
         $asserts[] = new Assert\LessThanOrEqual(1);
-        $response = $this->validate($orderId, $asserts);
+        $response  = $this->validate($orderId, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -228,9 +228,9 @@ class StoreController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 200;
+            $responseCode    = 200;
             $responseHeaders = [];
-            $result = $handler->getOrderById($orderId, $responseCode, $responseHeaders);
+            $result          = $handler->getOrderById($orderId, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -255,7 +255,7 @@ class StoreController extends Controller
                     $responseHeaders,
                     [
                         'Content-Type' => $responseFormat,
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
@@ -307,11 +307,11 @@ class StoreController extends Controller
         }
 
         // Validate the input values
-        $asserts = [];
+        $asserts   = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("OpenAPI\Server\Model\Order");
+        $asserts[] = new Assert\Type(OpenAPI\Server\Model\Order::class);
         $asserts[] = new Assert\Valid();
-        $response = $this->validate($body, $asserts);
+        $response  = $this->validate($body, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -322,9 +322,9 @@ class StoreController extends Controller
 
             
             // Make the call to the business logic
-            $responseCode = 200;
+            $responseCode    = 200;
             $responseHeaders = [];
-            $result = $handler->placeOrder($body, $responseCode, $responseHeaders);
+            $result          = $handler->placeOrder($body, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'successful operation';
@@ -346,7 +346,7 @@ class StoreController extends Controller
                     $responseHeaders,
                     [
                         'Content-Type' => $responseFormat,
-                        'X-OpenAPI-Message' => $message
+                        'X-OpenAPI-Message' => $message,
                     ]
                 )
             );
