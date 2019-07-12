@@ -1,14 +1,6 @@
 <?php
 
-{{#operations}}/**
- * {{controllerName}}
- * PHP version 5
- *
- * @category Class
- * @package  {{controllerPackage}}
- * @author   OpenAPI Generator team
- * @link     https://github.com/openapitools/openapi-generator
- */
+{{#operations}}
 
 {{>partial_header}}
 /**
@@ -25,6 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Validator\Constraints as Assert;
+
 use {{apiPackage}}\{{classname}};
 {{#imports}}use {{import}};
 {{/imports}}
@@ -32,9 +25,6 @@ use {{apiPackage}}\{{classname}};
 /**
  * {{controllerName}} Class Doc Comment
  *
- * @category Class
- * @package  {{controllerPackage}}
- * @author   OpenAPI Generator team
  * @link     https://github.com/openapitools/openapi-generator
  */
 class {{controllerName}} extends Controller
@@ -53,14 +43,15 @@ class {{controllerName}} extends Controller
      *
 {{/description}}
      * @param Request $request The Symfony request to handle.
+     *
      * @return Response The Symfony response.
      */
-    public function {{operationId}}Action(Request $request{{#hasPathParams}}{{#pathParams}}, ${{paramName}}{{/pathParams}}{{/hasPathParams}})
+    public function {{operationId}}Action(Request $request{{#hasPathParams}}{{#pathParams}}, ${{paramName}}{{/pathParams}}{{/hasPathParams}}): Response
     {
         {{#bodyParams}}
         // Make sure that the client is providing something that we can consume
-        $consumes = [{{#consumes}}'{{{mediaType}}}'{{#hasMore}}, {{/hasMore}}{{/consumes}}];
-        $inputFormat = $request->headers->has('Content-Type')?$request->headers->get('Content-Type'):$consumes[0];
+        $consumes    = [{{#consumes}}'{{{mediaType}}}'{{#hasMore}}, {{/hasMore}}{{/consumes}}];
+        $inputFormat = $request->headers->has('Content-Type') ? $request->headers->get('Content-Type') : $consumes[0];
         if (!in_array($inputFormat, $consumes)) {
             // We can't consume the content that the client is sending us
             return new Response('', 415);
@@ -71,9 +62,9 @@ class {{controllerName}} extends Controller
         // Figure out what data format to return to the client
         $produces = [{{#produces}}'{{{mediaType}}}'{{#hasMore}}, {{/hasMore}}{{/produces}}];
         // Figure out what the client accepts
-        $clientAccepts = $request->headers->has('Accept')?$request->headers->get('Accept'):'*/*';
+        $clientAccepts  = $request->headers->has('Accept')?$request->headers->get('Accept'):'*/*';
         $responseFormat = $this->getOutputFormat($clientAccepts, $produces);
-        if ($responseFormat === null) {
+        if (null === $responseFormat) {
             return new Response('', 406);
         }
 
@@ -187,7 +178,7 @@ class {{controllerName}} extends Controller
             }
 
             return new Response(
-                {{#returnType}}$result !== null ?$this->serialize($result, $responseFormat):''{{/returnType}}{{^returnType}}''{{/returnType}},
+                {{#returnType}}$result !== null ? $this->serialize($result, $responseFormat) : ''{{/returnType}}{{^returnType}}''{{/returnType}},
                 $responseCode,
                 array_merge(
                     $responseHeaders,
@@ -207,9 +198,10 @@ class {{controllerName}} extends Controller
 
     /**
      * Returns the handler for this API controller.
+     *
      * @return {{classname}}
      */
-    public function getApiHandler()
+    public function getApiHandler(): {{classname}}
     {
         return $this->apiServer->getApiHandler('{{pathPrefix}}');
     }
